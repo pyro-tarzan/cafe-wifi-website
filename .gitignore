@@ -1,0 +1,23 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+./cafe-wifi-website/node_modules
+./cafe-wifi-website/.pnp
+./cafe-wifi-website/.pnp.js
+
+# testing
+./cafe-wifi-website/coverage
+
+# production
+./cafe-wifi-website/build
+
+# misc
+./cafe-wifi-website/.DS_Store
+./cafe-wifi-website/.env.local
+./cafe-wifi-website/.env.development.local
+./cafe-wifi-website/.env.test.local
+./cafe-wifi-website/.env.production.local
+
+./cafe-wifi-website/npm-debug.log*
+./cafe-wifi-website/yarn-debug.log*
+./cafe-wifi-website/yarn-error.log*
