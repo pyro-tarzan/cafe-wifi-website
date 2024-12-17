@@ -32,15 +32,6 @@ const Navigation = () => {
                 <div className="logo-container">
                     <h1 className="logo-font"><a href="/home">Cafe & Wifi</a></h1>
                 </div>
-                <div className="menu-container">
-                    <div className="menu">
-                        <h1 className="nav-h1"><a href="/home">Home</a></h1>
-                    </div>
-                    <div className="border-white"></div>
-                    <div className="menu">
-                        <h1 className="nav-h1"><a href="/about">About Us</a></h1>
-                    </div>
-                </div>
             </div>
         </div>
     )

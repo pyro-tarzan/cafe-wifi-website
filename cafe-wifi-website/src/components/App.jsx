@@ -1,13 +1,19 @@
 import './../styles/App.css';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+// PAGES
 import Home from "./../pages/Home.jsx"
+import CreateRestaurant from '../pages/CreateRestaurant.jsx';
 
 const App = () => {
-  return (
-    <BrowserRouter>
-		<Home />
-    </BrowserRouter>
-  )
+	return (
+		<Router>
+			<Routes>
+				<Route path='/' element={<Home />} />
+				<Route path='/createrestaurant' element={<CreateRestaurant />} />
+			</Routes>
+		</Router>
+	)
 }
 
 export default App;

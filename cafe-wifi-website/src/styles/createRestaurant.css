@@ -1,0 +1,16 @@
+.add-res{
+    padding-top: 140px;
+}
+
+.add-layer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-cont{
+    height: 800px;
+    width: 800px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.226);
+}
