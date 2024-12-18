@@ -1,19 +1,27 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import "./../styles/restaurants.css";
 
 import tick from "./../assets/tick-inside-circle.png"
 import crossTick from "./../assets/unchecked.png"
+import Delete from "./Delete";
 
 import axios from "axios"
 
 const Restaurants = ({resData}) => {
 
-    const cafes = resData.fetchedData.cafes
-    console.log(cafes)
+    const cafes = resData.fetchedData.cafes;
+
+    const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+    const [selectedCafeId, setSelectedCafeId] = useState(null);
 
     const secretKey = "TopSecretAPIKey"
 
-    const deleteData = async(id) => {
+    const deleteData = (id) => {
+        setSelectedCafeId(id);
+        setShowDeleteConfirm(true);
+    }
+
+    const handleDelete = async(id) => {
         try{
             const res = await axios.delete(`http://127.0.0.1:5000/report-closed/${id}`, {
                 params: {
@@ -21,6 +29,7 @@ const Restaurants = ({resData}) => {
                 }
             });
             console.log(res.status)
+            window.location.reload();
         }
         catch(error){
             if (error.status){
@@ -28,6 +37,22 @@ const Restaurants = ({resData}) => {
             }
         }
     }
+
+    const handleCancel = () => {
+        setSelectedCafeId(null);
+        setShowDeleteConfirm(false);
+    }
+
+    useEffect(() => {
+        if (showDeleteConfirm){
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "auto";
+        }
+
+        return () => document.body.style.overflow = "auto";
+
+    }, [showDeleteConfirm])
 
     return (
         <div className="restaurants">
@@ -78,6 +103,12 @@ const Restaurants = ({resData}) => {
                     </div>
                 </div>
             ))}
+            {showDeleteConfirm && (
+                <Delete 
+                    onDelete={() => handleDelete(selectedCafeId)} 
+                    onCancel={handleCancel}
+                />
+            )}
         </div>
     )
 }
