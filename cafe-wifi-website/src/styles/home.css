@@ -11,6 +11,18 @@
     }
 }
 
+@keyframes fadeInFromTop {
+    0% {
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+
+    100% {
+        opacity: 100%;
+        transform: translateY(0);
+    }
+}
+
 .bg-layout{
     height: 650px;
     width: 100%;
@@ -69,4 +81,17 @@
 .rest-cont{
     width: 100%;
     padding: 80px 350px;
+}
+
+.popup {
+    position: fixed;
+    top: 100px;
+    left: 850px;
+    background-color: white;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 0px 0px 1px rgb(0, 119, 0);
+    z-index: 1003;
+    animation: fadeInFromTop .5s ease-out forwards;
 }

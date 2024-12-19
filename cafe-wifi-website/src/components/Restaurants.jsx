@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react";
+import { Link } from "react-router-dom";
 import "./../styles/restaurants.css";
 
 import tick from "./../assets/tick-inside-circle.png"
@@ -67,7 +68,7 @@ const Restaurants = ({resData}) => {
                             <p>Location: <a href={cafe.map_url} className="loc-url">{cafe.location}</a></p>
                             <p>Seats: {cafe.seats}</p>
                             <div className="buttons">
-                                <button className="res-button edit-btn">Edit</button>
+                                <Link to={`/edit-restaurant/${cafe.id}`} state={cafe} className="res-button edit-btn">Edit</Link>
                                 <button className="res-button delete-btn" onClick={() => deleteData(cafe.id)} >Delete</button>
                             </div>
                         </div>
@@ -98,7 +99,7 @@ const Restaurants = ({resData}) => {
                             </div>
                         </div>
                         <div className="view-cont">
-                            <a href="">View</a>
+                            <a href="/">View</a>
                         </div>
                     </div>
                 </div>

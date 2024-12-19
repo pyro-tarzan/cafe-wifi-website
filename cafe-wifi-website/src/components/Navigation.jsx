@@ -30,7 +30,7 @@ const Navigation = () => {
         <div className={`nav-bar ${showNavBar ? "visible": "hidden"}`}>
             <div className="nav-container">
                 <div className="logo-container">
-                    <h1 className="logo-font"><a href="/home">Cafe & Wifi</a></h1>
+                    <h1 className="logo-font"><a href="/">Cafe & Wifi</a></h1>
                 </div>
             </div>
         </div>

@@ -1,0 +1,109 @@
+.form-cont{
+    min-width: 800px;
+    max-width: 800px;
+    border-radius: 5px;
+    border: 2px solid rgba(181, 133, 70, 0.603);
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.226);
+    background-color: white;
+    padding-top: 35px;
+    padding-bottom: 40px;
+}
+
+.form-cont h1{
+    text-align: center;
+    font-weight: 500;
+    padding-bottom: 25px;
+}
+
+.form-class{
+    display: flex;
+    flex-direction: column;
+    padding: 0px 60px;
+    gap: 30px;
+}
+
+.lab-text{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.lab-in{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.lab-in > label{
+    font-size: 20px;
+}
+
+.lab-in input[type="text"]{
+    outline: none;
+    font-size: 16px;
+    padding: 5px 10px 5px 2px;
+    border-width: 0px;
+    box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.103);
+    border-radius: 2px;
+    transition: box-shadow .1s ease-in, color .1s ease-in;
+}
+
+input[type="text"]:focus{
+    box-shadow: 0px 0px 0px 1px rgb(181, 133, 70);
+    &::placeholder{
+        color: rgba(0, 0, 0, 0.699);
+    }
+}
+
+.lab-check{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.lab-check > div{
+    display: flex;
+    gap: 15px;
+}
+
+.form-btns{
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.form-btns button{
+    all: unset;
+    font-size: 20px;
+    padding: 5px 10px;
+    cursor: pointer;
+    border: 0px solid black;
+    border-radius: 5px;
+    box-shadow: 0px 0px 0px 2px rgb(181, 133, 70);
+    color: rgb(104, 76, 39);
+}
+
+button[type="submit"]{
+    background-color: rgb(181, 133, 70);
+    box-shadow: 0px 0px 0px 2px rgb(181, 133, 70);
+    color: white;
+}
+
+.lab-check .status-check{
+    cursor: pointer;
+}
+
+.go-back{
+    all: unset;
+    font-size: 20px;
+    padding: 5px 10px;
+    cursor: pointer;
+    border: 0px solid black;
+    border-radius: 5px;
+    box-shadow: 0px 0px 0px 2px rgb(181, 133, 70);
+    color: rgb(104, 76, 39);
+}
+
+.status-check input{
+    margin-right: 5px;
+}

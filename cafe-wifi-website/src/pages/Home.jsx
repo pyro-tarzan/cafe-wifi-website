@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import "./../styles/home.css"
 
 // COMPONENTS
@@ -12,6 +13,9 @@ import axios from "axios"
 
 const Home = () => {
 
+    const navigate = useNavigate();
+    const location = useLocation();
+    const [popUpMessage, setPopUpMessage] = useState("");
     const [fetchedData, setFetchedData] = useState({});
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("")
@@ -32,8 +36,15 @@ const Home = () => {
             }   
         }
 
-        fetchData()
-    }, [])
+        fetchData();
+
+        if (location.state){
+            setPopUpMessage(location.state.message);
+            navigate(location.pathname, {replace: true});
+            const timer = setTimeout(() => setPopUpMessage(""), 3000);
+            return () => clearTimeout(timer);
+        }
+    }, [location.state, location.pathname, navigate])
 
     return (
         <div className="home">
@@ -44,6 +55,7 @@ const Home = () => {
                     <ErrorNotFound />
                 ) : (
                     <div className="fetched">
+                        {popUpMessage && <div className="popup">{popUpMessage}</div>}
                         <div className="bg-layout" style={{backgroundImage: `url(${bgImg})`}}>
                             <div className="bg-zindex">
                                 <div className="sh-des">
