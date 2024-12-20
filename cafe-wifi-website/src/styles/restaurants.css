@@ -63,7 +63,7 @@
 }
 
 .res-utility{
-    width: 30%;
+    width: 35%;
     height: 100%;
     padding: 15px 10px;
     display: flex;
@@ -110,17 +110,13 @@
 }
 
 .view-cont{
-    width: 10%;
+    width: 5%;
+    background-color: rgb(181, 133, 70);
 }
 
-.view-cont a{
+.name-loc-seat{
     display: flex;
-    width: 100%;
+    flex-direction: column;
     height: 100%;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    color: white;
-    background-color: rgb(181, 133, 70);
-    padding: 0px 7px;
+    gap: 5px;
 }

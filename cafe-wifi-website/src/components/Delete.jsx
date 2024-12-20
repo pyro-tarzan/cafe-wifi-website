@@ -1,7 +1,7 @@
 import React from "react";
 import "./../styles/delete.css";
 
-const Delete = ({onDelete, onCancel, position}) => {
+const Delete = ({onDelete, onCancel}) => {
     return (
         <div className="delete-confirm">
             <div className="delete-cont">

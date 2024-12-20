@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./../styles/restaurants.css";
 
 import tick from "./../assets/tick-inside-circle.png"
@@ -11,11 +11,12 @@ import axios from "axios"
 const Restaurants = ({resData}) => {
 
     const cafes = resData.fetchedData.cafes;
+    const navigate = useNavigate();
 
     const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
     const [selectedCafeId, setSelectedCafeId] = useState(null);
 
-    const secretKey = "TopSecretAPIKey"
+    const secretKey = "YourSecretKey"
 
     const deleteData = (id) => {
         setSelectedCafeId(id);
@@ -29,8 +30,12 @@ const Restaurants = ({resData}) => {
                     "api-key": secretKey
                 }
             });
-            console.log(res.status)
-            window.location.reload();
+
+            if (res.status === 200) {
+                navigate("/", {state: {message: res.data.response.success}});
+                setSelectedCafeId(null);
+                setShowDeleteConfirm(false);
+            }
         }
         catch(error){
             if (error.status){
@@ -64,9 +69,11 @@ const Restaurants = ({resData}) => {
                     </div>
                     <div className="res-contents">
                         <div className="res-title">
-                            <h1>{cafe.name}</h1>
-                            <p>Location: <a href={cafe.map_url} className="loc-url">{cafe.location}</a></p>
-                            <p>Seats: {cafe.seats}</p>
+                            <div className="name-loc-seat">
+                                <h1>{cafe.name}</h1>
+                                <p>Location: <a href={cafe.map_url} className="loc-url">{cafe.location}</a></p>
+                                <p>Seats: {cafe.seats}</p>
+                            </div>
                             <div className="buttons">
                                 <Link to={`/edit-restaurant/${cafe.id}`} state={cafe} className="res-button edit-btn">Edit</Link>
                                 <button className="res-button delete-btn" onClick={() => deleteData(cafe.id)} >Delete</button>
@@ -98,9 +105,7 @@ const Restaurants = ({resData}) => {
                                 }
                             </div>
                         </div>
-                        <div className="view-cont">
-                            <a href="/">View</a>
-                        </div>
+                        <div className="view-cont"></div>
                     </div>
                 </div>
             ))}

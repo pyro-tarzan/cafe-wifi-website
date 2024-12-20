@@ -38,11 +38,12 @@ const Home = () => {
 
         fetchData();
 
-        if (location.state){
+        if (location.state?.message){
             setPopUpMessage(location.state.message);
             navigate(location.pathname, {replace: true});
-            const timer = setTimeout(() => setPopUpMessage(""), 3000);
-            return () => clearTimeout(timer);
+            setTimeout(() => {
+                setPopUpMessage("");
+            }, 3000);
         }
     }, [location.state, location.pathname, navigate])
 

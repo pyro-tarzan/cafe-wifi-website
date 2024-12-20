@@ -21,3 +21,6 @@ cafe-wifi-website/.env.production.local
 cafe-wifi-website/npm-debug.log*
 cafe-wifi-website/yarn-debug.log*
 cafe-wifi-website/yarn-error.log*
+
+Cafe-Wifi-Backend/.venv
+Cafe-Wifi-Backend/.DS_Store

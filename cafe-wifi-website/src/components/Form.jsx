@@ -42,11 +42,11 @@ const Form = ({heading, submitType, cafeData, typeForm, cafeId}) => {
                 });
     
                 if (res.status === 200){
-                    navigate("/", {state: {message: res.data.response.Success}})
+                    navigate("/", {state: {message: res.data.response.success}})
                 }
             }
             catch(error){
-                navigate("/", {state: {message: "Something went wrong. Try After Sometime.", changes: true}})
+                navigate("/", {state: {message: "Something went wrong. Try After Sometime."}})
             }
             
         } else {
@@ -58,7 +58,7 @@ const Form = ({heading, submitType, cafeData, typeForm, cafeId}) => {
                 });
     
                 if (res.status === 200){
-                    navigate("/", {state: {message: ""}})
+                    navigate("/", {state: {message: res.data.response.success}})
                 }
             }
             catch(error){
